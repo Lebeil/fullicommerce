@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Home from "./Components/Home";
-import Login from "./Components/auth/Login";
-import Register from "./Components/auth/Register";
-import NoPage from "./Components/NoPage";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Home from "./Pages/Home";
+import Login from "./Pages/auth/Login";
+import Register from "./Pages/auth/Register";
+import NoPage from "./Pages/NoPage";
 
 const App = () => {
     return (
@@ -20,3 +20,4 @@ const App = () => {
 };
 
 export default App;
+
