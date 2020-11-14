@@ -5,10 +5,13 @@ import Home from "./Pages/Home";
 import Login from "./Pages/auth/Login";
 import Register from "./Pages/auth/Register";
 import NoPage from "./Pages/NoPage";
+import Navbar from "./Components/Navbar";
 
 const App = () => {
     return (
+        <>
         <Router>
+            <Navbar/>
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/login' component={Login}/>
@@ -16,6 +19,7 @@ const App = () => {
                 <Route component={NoPage}/>
             </Switch>
         </Router>
+        </>
     );
 };
 
