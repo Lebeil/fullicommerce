@@ -7,8 +7,9 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        /*console.log("ENV", process.env.REACT_APP_REGISTER_REDIRECT_URL)*/
         const config = {
-            url: "http://localhost:3000/register/complete",
+            url: process.env.REACT_APP_REGISTER_REDIRECT_URL,
             handleCodeInApp: true,
         };
 
@@ -31,6 +32,7 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 autoFocus
             />
+            <br/>
             <button type="submit" className="btn btn-outline-primary">S'inscrire</button>
         </form>
     );
