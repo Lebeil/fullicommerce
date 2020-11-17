@@ -89,6 +89,7 @@ const Login = ({history}) => {
                 shape="round"
                 icon={<MailOutlined style={{verticalAlign:'text-top'}}/>}
                 size="large"
+                block
                 disabled={!email || password.length < 6 || !disable}
             >
                 Se connecter avec l'email
@@ -111,6 +112,7 @@ const Login = ({history}) => {
                         shape="round"
                         icon={<GoogleOutlined style={{verticalAlign:'text-bottom'}}/>}
                         size="large"
+                        block
                     >
                         Se connecter avec Google
                     </Button>
