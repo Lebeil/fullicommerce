@@ -41,7 +41,7 @@ const Register = () => {
     return (
         <div className="container p-5">
             <div className="row">
-                <div className="col-md6 offset-md-3">
+                <div className="col-md-6 offset-md-3">
                     <h4>Inscription</h4>
                     {registerForm()}
                 </div>
