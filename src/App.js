@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Home from "./Pages/Home";
@@ -11,7 +11,32 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RegisterComplete from "./Pages/auth/RegisterComplete";
 
+import {auth} from './firebase';
+import {useDispatch} from "react-redux";
+
+
 const App = () => {
+    const dispatch = useDispatch();
+
+    //to check firebase auth state
+    useEffect(()=> {
+        const unsubscribe = auth.onAuthStateChanged(async (user)=> {
+            if(user) {
+                const idTokenResult = await user.getIdTokenResult()
+                console.log("USER", user)
+                dispatch({
+                    type: 'LOGGED_IN_USER',
+                    payload: {
+                        email: user.email,
+                        token: idTokenResult.token,
+                    }
+                })
+            }
+        });
+        //function cleanup
+        return ()=> unsubscribe();
+    }, [])
+
     return (
         <Fragment>
             <Router>
@@ -30,4 +55,5 @@ const App = () => {
 };
 
 export default App;
+
 
