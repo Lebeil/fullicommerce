@@ -8,7 +8,8 @@ import {useDispatch} from "react-redux";
 const Login = ({history}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
+    const [disable, setDisable] = useState(true)
 
     let dispatch = useDispatch()
 
@@ -16,6 +17,7 @@ const Login = ({history}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setDisable(false)
         /*console.log(email, password)*/
         try {
             const result = await auth.signInWithEmailAndPassword(email, password)
@@ -33,7 +35,7 @@ const Login = ({history}) => {
         }catch (error) {
             console.log(error)
             toast.error(error.message)
-            setLoading(false);
+            setLoading(true);
         }
     }
 
@@ -87,7 +89,7 @@ const Login = ({history}) => {
                 shape="round"
                 icon={<MailOutlined style={{verticalAlign:'text-top'}}/>}
                 size="large"
-                disabled={!email || password.length < 6}
+                disabled={!email || password.length < 6 || !disable}
             >
                 Se connecter avec l'email
             </Button>
