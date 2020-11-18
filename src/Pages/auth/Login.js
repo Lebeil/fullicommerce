@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {auth, googleAuthProvider} from "../../firebase";
 import { toast } from "react-toastify";
 import {MailOutlined, GoogleOutlined} from '@ant-design/icons';
 import {Button} from 'antd'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from 'react-router-dom';
 
 const Login = ({history}) => {
@@ -11,6 +11,11 @@ const Login = ({history}) => {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false)
     const [disable, setDisable] = useState(true)
+    const {user} = useSelector((state)=> ({...state}))
+
+    useEffect(()=> {
+        if (user && user.token)history.push('/')
+    },[user])
 
     let dispatch = useDispatch()
 
