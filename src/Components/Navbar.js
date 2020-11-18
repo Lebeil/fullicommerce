@@ -36,13 +36,13 @@ const Navbar = () => {
 
             {!user && (
                 <Item key="register" icon={<UserAddOutlined/>} className="float-right">
-                    <Link to="/register">Register</Link>
+                    <Link to="/register">S'inscrire</Link>
                 </Item>
             )}
 
             {!user && (
                 <Item key="login" icon={<UserOutlined/>} className="float-right">
-                    <Link to="/login">Log in</Link>
+                    <Link to="/login">Se connecter</Link>
                 </Item>
             )}
 

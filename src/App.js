@@ -6,6 +6,7 @@ import Login from "./Pages/auth/Login";
 import Register from "./Pages/auth/Register";
 import NoPage from "./Pages/NoPage";
 import Navbar from "./Components/Navbar";
+import ForgotPassword from "./Pages/auth/ForgotPassword";
 /*notify*/
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,6 +48,7 @@ const App = () => {
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/register' component={Register}/>
                     <Route exact path='/register/complete' component={RegisterComplete}/>
+                    <Route exact path='/forgot/password' component={ForgotPassword}/>
                     <Route component={NoPage}/>
                 </Switch>
             </Router>
